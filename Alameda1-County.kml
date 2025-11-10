@@ -20,10 +20,16 @@
 <color>7fe1ca9e</color>
 </PolyStyle>
 </Style>
+<Style id="CA001">
+<PolyStyle>
+<color>7f9ecae1</color>
+</PolyStyle>
+</Style>
 <Placemark id="cb_2018_us_county_5m.kml">
 <name>&lt;at&gt;&lt;openparen&gt;Alameda&lt;closeparen&gt;</name>
 <visibility>1</visibility>
 <Polygon>
+<stylexxx
 <extrude>0</extrude>
 <tessellate>1</tessellate>
 <altitudeMode>clampToGround</altitudeMode>
@@ -34,4 +40,5 @@
 </outerBoundaryIs>
 </Polygon>
 </Placemark>
+
 </Document></kml>
