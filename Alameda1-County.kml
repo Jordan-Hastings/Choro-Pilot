@@ -29,7 +29,7 @@
 <name>&lt;at&gt;&lt;openparen&gt;Alameda&lt;closeparen&gt;</name>
 <visibility>1</visibility>
 <Polygon>
-<stylexxx
+<styleUrl>#CA001</styleUrl>
 <extrude>0</extrude>
 <tessellate>1</tessellate>
 <altitudeMode>clampToGround</altitudeMode>
@@ -40,5 +40,4 @@
 </outerBoundaryIs>
 </Polygon>
 </Placemark>
-
 </Document></kml>
