@@ -6,7 +6,7 @@
     <title>KML Click Capture Sample</title>
     <style>
       html, body {
-        height: 800px;
+        height: 700px;
         padding: 0;
         margin: 0;
         }
@@ -26,17 +26,23 @@
        border: thin solid #333;
        border-left: none;
        }
-    ul { list-style-type: disc; padding-inline-start: 5px; }
+    ul { 
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        padding-inline-start: 5px;
+       }
     </style>
   </head>
   <body>
     <table border=1>
       <tr>
-        <th colspan=2>Choropleth-Pilot</th>
+        <th colspan=2><big>Choropleth-Pilot</big></th>
         <th> </th>
       </tr>
       <tr>
-        <td width=150px valign=TOP><center><big><b>Legend</b></big></center>
+        <td width=160px valign=TOP><center><big><b>Legend</b></big></center>
           <p><u>Layers</u>
             <ul><li>Counties</li></ul>
           <p><u>Topics</u>
