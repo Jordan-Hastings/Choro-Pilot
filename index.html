@@ -104,7 +104,7 @@ async function loadGeoJsonFile(url) {
   //console.log(data.length)
     console.log("JSON data:", data)
     map.data.addGeoJson(data); 
-    map.data.forEach((f) => {console.log(f)})
+    map.data.forEach((f) => {console.log(f); overrideStyle(f, {fillColor:"blue"})})
   } catch (e) {
     alert("Not a GeoJSON file!");
   }
