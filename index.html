@@ -72,7 +72,7 @@
           zoom: 2,
           mapTypeId: 'terrain'
         });
-        map.data.addGeoJson(loadGeoJSONString(src));
+        loadGeoJsonFile(src));
 /*
         var kmlLayer = new google.maps.KmlLayer(src, {
           suppressInfoWindows: true,
@@ -90,7 +90,7 @@ console.log(kmlLayer.Polygons[0])
         });
 */
       }
-async function readFileFromUrl(url) {
+async function loadGeoJsonFile(url) {
   try {
     const response = await fetch(url);
 
@@ -98,10 +98,10 @@ async function readFileFromUrl(url) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    // If the file is JSON:
+    // Presume the file is geoJSON:
     const data = await response.json();
     console.log("JSON data:", data)
-    return data;
+    map.data.addGeoJson(data);
   } catch (e) {
     alert("Not a GeoJSON file!");
   }
