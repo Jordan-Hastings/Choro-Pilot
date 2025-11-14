@@ -72,6 +72,8 @@
           zoom: 2,
           mapTypeId: 'terrain'
         });
+        map.data.addGeoJson(loadGeoJSONString(src));
+/*
         var kmlLayer = new google.maps.KmlLayer(src, {
           suppressInfoWindows: true,
           preserveViewport: false,
@@ -86,7 +88,33 @@ console.log(kmlLayer.Polygons[0])
           var testimonial = document.getElementById('capture');
           testimonial.innerHTML = content;
         });
+*/
       }
+async function readFileFromUrl(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // If the file is JSON:
+    const data = await response.json();
+    console.log("JSON data:", data)
+    return data;
+  }
+}
+function loadGeoJsonString(geoString) {
+  try {
+    const geojson = JSON.parse(geoString);
+
+    map.data.addGeoJson(geojson);
+  } catch (e) {
+    alert("Not a GeoJSON file!");
+  }
+
+//zoom(map);
+}
     </script>
 
     <!-- script src='maplabel1.js'> </script -->
