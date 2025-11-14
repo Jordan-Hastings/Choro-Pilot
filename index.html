@@ -93,6 +93,7 @@ console.log(kmlLayer.Polygons[0])
 async function loadGeoJsonFile(url) {
   try {
     const response = await fetch(url);
+    console.log(response.clone().text().length)
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -100,7 +101,7 @@ async function loadGeoJsonFile(url) {
 
     // Presume the file is geoJSON:
     const data = await response.json();
-    console.log(data.length)
+  //console.log(data.length)
     console.log("JSON data:", data)
     map.data.addGeoJson(data);
   } catch (e) {
