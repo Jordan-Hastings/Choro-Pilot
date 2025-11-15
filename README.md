@@ -1,2 +1,2 @@
-# PilotChoro
-Pilot Choropleth GMap Xface
+# Choro - Pilot
+Google Map Choropleth Demo
