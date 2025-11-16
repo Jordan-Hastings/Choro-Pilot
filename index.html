@@ -137,7 +137,7 @@ const calneva = [{Name:'Lake Tahoe',POP:0,MHI:0},
 {Name:'Carson City, Nevada',POP:2024,MHI:71.8}]
       var map;
     //var src = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
-      function initMap() {alert("v.131a, "+calneva.length)
+      function initMap() {alert("v.131b, "+calneva.length)
         const paramsString = window.location.search; //console.log("at initMap() ", paramsString)
         if (paramsString.indexOf("A1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/Alameda1-County.kml';
         if (paramsString.indexOf("C1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/centerPt1.kml';
@@ -147,7 +147,7 @@ const calneva = [{Name:'Lake Tahoe',POP:0,MHI:0},
           center: new google.maps.LatLng(37, -120),
           zoom: 6, zoomControl: true,
           streetViewControl: false,
-          mapTypeId: 'terrain'
+          mapTypeId: 'roadmap'
         });
       var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/~lake-tahoe_818.geojson';
         loadGeoJsonFile(src);
@@ -163,10 +163,10 @@ const calneva = [{Name:'Lake Tahoe',POP:0,MHI:0},
           var name = feature.getProperty("Name"); nameLU(); var pop = calneva[L].POP, mhi = calneva[L].MHI;
           var color = (L==0?"blue":"ivory")
           if (document.getElementById("POP").checked) { // ?POP in url
-            color = (pop<500 ? "dodgerblue" : pop>100000 ? "tomato" : pop>20000 ? "orange" : "antiqueWhite")
+            color = (pop<500 ? "dodgerblue" : pop>150000 ? "crimson": pop>100000 ? "tomato" : pop>20000 ? "orange" : "antiqueWhite")
           }  
           if (document.getElementById("MHI").checked) { // ?MHI in url
-          //TBW  
+            color = (mhi<60 ? "crimson" : mhi<75 ? "pink" : mhi>150 ? "darkGreen" : mhi>100 ? "green" : "antiqueWhite")
           }
           return {clickable:true, fillColor:color, fillOpacity:0.2, strokeColor:'darkGray', strokeWeight:1}
         }
