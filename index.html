@@ -61,7 +61,7 @@
       var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/CalNeva-County.kml';
       var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/lake-tahoe_818.kml';
       var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/lake-tahoe_818.geojson';
-      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/Alameda1-County.geojson';
+      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/CalNeva-County.geojson';
       function initMap() {
         const paramsString = window.location.search; //console.log("at initMap() ", paramsString)
         if (paramsString.indexOf("A1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/Alameda1-County.kml';
@@ -106,7 +106,7 @@ async function loadGeoJsonFile(url) {
     console.log("JSON data:", data)
     map.data.addGeoJson(data); 
   //map.data.setStyle((feature) => {alert(feature.getProperty("Name")); return {fillColor:'blue', fillOpacity:0.1, strokeColor:'black', strokeWeight:1}});
-    map.data.setStyle((feature) => { return {fillColor:'blue', fillOpacity:0.1, strokeColor:'black', strokeWeight:1}});
+    map.data.setStyle((feature) => { return {fillColor:'blue', fillOpacity:0.02, strokeColor:'grey', strokeOpacity:0.5, strokeWeight:0.5}});
   //map.data.forEach((feature) => { alert(feature.getId()); console.log(feature.getProperties())}); 
     // console.log(fc.features[0])}) //overrideStyle(f.features[0], {fillColor:"blue"}))})
   } catch (e) {
