@@ -61,7 +61,7 @@
       function hideshow(th) {alert("hideshow "+th.checked+" "+(typeof map.data.getStyle()))
         map.data.setStyle((feature) => {if (feature.getProperty("Name").indexOf("Tahoe")>0) { //return {fillOpacity:(th.checked?1:0)}})
         //var style = map.data.getStyle(); alert(typeof style); // map.data.overrideStyle(feature, {fillOpacity:(th.checked?1:0)})
-          map.data.overrideStyle(feature, {fillColor:'blue', fillOpacity:(th.checked?1:0), strokeWeight:1})
+          map.data.overrideStyle(feature, {zIndex:1, fillColor:'blue', fillOpacity:(th.checked?1:0), strokeWeight:0.5})
           }
         })
       }
@@ -119,8 +119,8 @@ async function loadGeoJsonFile(url) {
   //console.log("JSON data:", data)
     map.data.addGeoJson(data); 
   //map.data.setStyle((feature) => {alert(feature.getProperty("Name")); return {fillColor:'blue', fillOpacity:0.1, strokeColor:'black', strokeWeight:1}});
-  //map.data.setStyle((feature) => { return {clickable:(url.indexOf("lake")+1), fillColor:'blue', fillOpacity:0.02, strokeColor:(url.indexOf("lake")>0?'blue':'black'), strokeOpacity:0.5, strokeWeight:0.5}});
-    map.data.setStyle( { clickable:(url.indexOf("lake")+1), fillColor:'blue', fillOpacity:0.02, strokeColor:(url.indexOf("lake")>0?'blue':'black'), strokeOpacity:0.5, strokeWeight:0.5 } );
+    map.data.setStyle((feature) => { return {clickable:(url.indexOf("lake")+1), fillColor:'blue', fillOpacity:0.02, strokeColor:(url.indexOf("lake")>0?'blue':'black'), strokeOpacity:0.5, strokeWeight:0.5}});
+  //map.data.setStyle( { clickable:(url.indexOf("lake")+1), fillColor:'blue', fillOpacity:0.02, strokeColor:(url.indexOf("lake")>0?'blue':'black'), strokeOpacity:0.5, strokeWeight:0.5 } );
   //map.data.forEach((feature) => { alert(feature.getId()); console.log(feature.getProperties())}); 
     // console.log(fc.features[0])}) //overrideStyle(f.features[0], {fillColor:"blue"}))})
   } catch (e) {
