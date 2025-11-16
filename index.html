@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>KML Click Capture Sample</title>
+    <title>Choropleth - Pilot</title>
     <style>
       html, body {
         height: 700px;
@@ -45,11 +45,11 @@
         <td width=200px valign=TOP>
           <p><br><center><big><b>Legend</b></big></center>
           <p><u>Layers</u>
-            <br><input type="checkbox" id="LTahoe"> Lake Tahoe
-            <br><input type="checkbox" id="AllCs" checked disabled> All Countys
+            <br><input type="checkbox" id="LTahoe" onChange="alert('Click')"> Lake Tahoe
+            <br><input type="checkbox" id="AllCos" checked disabled> All Countys
           <p><u>Themes</u>
-            <br><input type="radio" id="POP" name=Theme> Population / SqMi
-            <br><input type="radio" id="MHI" name=Theme> Median HH_Income
+            <br><input type="radio" id="POP" name=Theme disabled> Population / SqMi
+            <br><input type="radio" id="MHI" name=Theme disabled> Median HH_Income
         </td>
         <td> <div id="map"></div></td>
       </tr>
