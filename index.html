@@ -58,16 +58,16 @@
     <!--div id="map"></div -->
     <!--div id="capture"></div -->
     <script>
-      function hideshow(th) {alert("hideshow "+th.checked+" "+(typeof map.data.getStyle()))
+      function hideshow(th) {//alert("hideshow "+th.checked+" "+(typeof map.data.getStyle()))
         map.data.setStyle((feature) => {if (feature.getProperty("Name").indexOf("Tahoe")>0) { //return {fillOpacity:(th.checked?1:0)}})
         //var style = map.data.getStyle(); alert(typeof style); // map.data.overrideStyle(feature, {fillOpacity:(th.checked?1:0)})
-          map.data.overrideStyle(feature, {zIndex:1, fillColor:'blue', fillOpacity:(th.checked?1:0), strokeWeight:0.5})
+          map.data.overrideStyle(feature, {zIndex:1, fillColor:'blue', fillOpacity:(th.checked?1:0.1), strokeWeight:0.5})
           }
         })
       }
       var map;
     //var src = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
-      function initMap() {alert("124")
+      function initMap() {alert("125")
         const paramsString = window.location.search; //console.log("at initMap() ", paramsString)
         if (paramsString.indexOf("A1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/Alameda1-County.kml';
         if (paramsString.indexOf("C1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/centerPt1.kml';
@@ -81,6 +81,7 @@
         });
       var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/~lake-tahoe_818.geojson';
         loadGeoJsonFile(src);
+        map.data.forEach((feature) => {conole.log(feature.getProperty("Name"))})                  
       var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/~CalNeva-County.geojson';
         loadGeoJsonFile(src);
 
