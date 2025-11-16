@@ -46,7 +46,7 @@
           <p><br><center><big><b>Legend</b></big></center>
           <p><u>Layers</u>
             <br><input type="checkbox" id="LTahoe"> Lake Tahoe
-            <br><input type="checkbox" id="Countys" checked> Countys
+            <br><input type="checkbox" id="AllCs" checked disabled> All Countys
           <p><u>Themes</u>
             <br><input type="radio" id="POP" name=Theme> Population / SqMi
             <br><input type="radio" id="MHI" name=Theme> Median HH_Income
@@ -59,10 +59,6 @@
     <script>
       var map;
     //var src = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
-      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/CalNeva-County.kml';
-      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/lake-tahoe_818.kml';
-      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/lake-tahoe_818.geojson';
-      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/CalNeva-County.geojson';
       function initMap() {
         const paramsString = window.location.search; //console.log("at initMap() ", paramsString)
         if (paramsString.indexOf("A1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/Alameda1-County.kml';
@@ -74,8 +70,13 @@
           zoom: 6,
           mapTypeId: 'terrain'
         });
+      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/lake-tahoe_818.geojson';
+        loadGeoJsonFile(src);
+      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/CalNeva-County.geojson';
         loadGeoJsonFile(src);
 /*
+      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/CalNeva-County.kml';
+      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/lake-tahoe_818.kml';
         var kmlLayer = new google.maps.KmlLayer(src, {
           suppressInfoWindows: true,
           preserveViewport: false,
@@ -101,13 +102,13 @@ async function loadGeoJsonFile(url) {
     }
 
     // Presume the file is geoJSON:
-    const text = await response.clone().text(); console.log(text.length)
+  //const text = await response.clone().text(); console.log(text.length)
     const data = await response.json();
   //console.log(data.length)
     console.log("JSON data:", data)
     map.data.addGeoJson(data); 
   //map.data.setStyle((feature) => {alert(feature.getProperty("Name")); return {fillColor:'blue', fillOpacity:0.1, strokeColor:'black', strokeWeight:1}});
-    map.data.setStyle((feature) => { return {fillColor:'blue', fillOpacity:0.02, strokeColor:'grey', strokeOpacity:0.5, strokeWeight:0.5}});
+    map.data.setStyle((feature) => { return {fillColor:'blue', fillOpacity:0.02, strokeColor:(url.indexOf("lake")>0)?'blue:'black'), strokeOpacity:0.5, strokeWeight:0.5}});
   //map.data.forEach((feature) => { alert(feature.getId()); console.log(feature.getProperties())}); 
     // console.log(fc.features[0])}) //overrideStyle(f.features[0], {fillColor:"blue"}))})
   } catch (e) {
