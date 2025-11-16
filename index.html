@@ -45,7 +45,7 @@
         <td width=200px valign=TOP>
           <p><br><center><big><b>Legend</b></big></center>
           <p><u>Layers</u>
-            <br><input type="checkbox" id="LTahoe" onChange="alert('Click')"> Lake Tahoe
+            <br><input type="checkbox" id="LTahoe" onChange="hideshow(this)"> Lake Tahoe
             <br><input type="checkbox" id="AllCos" checked disabled> All Countys
           <p><u>Themes</u>
             <br><input type="radio" id="POP" name=Theme disabled> Population / SqMi
@@ -55,8 +55,9 @@
       </tr>
     </table>
     <!--div id="map"></div -->
-    <div id="capture"></div>
+    <!--div id="capture"></div -->
     <script>
+      function hideshow(this) { alert("hideshow "+this.checked); }
       var map;
     //var src = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
       function initMap() {
@@ -72,7 +73,7 @@
         });
       var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/lake-tahoe_818.geojson';
         loadGeoJsonFile(src);
-      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/CalNeva-County.geojson';
+      var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/~CalNeva-County.geojson';
         loadGeoJsonFile(src);
 /*
       var src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/CalNeva-County.kml';
