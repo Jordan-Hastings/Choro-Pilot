@@ -34,6 +34,7 @@
         padding-inline-start: 5px;
        }
     </style>
+    <script src='https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/calneva.js'> </script>
   </head>
   <body>
     <table border=1>
@@ -57,7 +58,6 @@
     </table>
     <!--div id="map"></div -->
     <!--div id="capture"></div -->
-    <script src='https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/calneva.js'> </script>
     <script>
 /*
 const calneva = [{Name:'Lake Tahoe',POP:0,MHI:0},
@@ -139,7 +139,7 @@ const calneva = [{Name:'Lake Tahoe',POP:0,MHI:0},
 */
       var map;
     //var src = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
-      function initMap() {alert("v.131d, "+calneva.length)
+      function initMap() {alert("v.131e, "+calneva.length)
         const paramsString = window.location.search; //console.log("at initMap() ", paramsString)
         if (paramsString.indexOf("A1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/Alameda1-County.kml';
         if (paramsString.indexOf("C1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/centerPt1.kml';
