@@ -177,7 +177,7 @@ const calneva = [{Name:'Lake Tahoe',POP:0,MHI:0},
           return {clickable:true, fillColor:color, fillOpacity:0.2, strokeColor:'darkGray', strokeWeight:1}
         }
 
-        postSymbols(txt) {
+        function postSymbols(txt) {
           document.getElementById("Symbs").innerHTML = txt.replace(":","\n")
         }
   //map.data.setStyle((feature) => { return {clickable:(url.indexOf("lake")+1), fillColor:'blue', fillOpacity:0.02, strokeColor:(url.indexOf("lake")>0?'blue':'black'), strokeOpacity:0.5, strokeWeight:0.5}});
