@@ -57,8 +57,9 @@
     </table>
     <!--div id="map"></div -->
     <!--div id="capture"></div -->
-    <!-- script src='https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/calneva.js'> </script -->
+    <script src='https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/calneva.js'> </script>
     <script>
+/*
 const calneva = [{Name:'Lake Tahoe',POP:0,MHI:0},
 {Name:'Alameda County, California',POP:4704,MHI:126.2},
 {Name:'Alpine County, California',POP:5,MHI:110.8},
@@ -135,14 +136,15 @@ const calneva = [{Name:'Lake Tahoe',POP:0,MHI:0},
 {Name:'Washoe County, Nevada',POP:202,MHI:85.6},
 {Name:'White Pine County, Nevada',POP:8,MHI:72.3},
 {Name:'Carson City, Nevada',POP:2024,MHI:71.8}]
+*/
       var map;
     //var src = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
-      function initMap() {alert("v.131c, "+calneva.length)
+      function initMap() {alert("v.131d, "+calneva.length)
         const paramsString = window.location.search; //console.log("at initMap() ", paramsString)
         if (paramsString.indexOf("A1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/Alameda1-County.kml';
         if (paramsString.indexOf("C1")>0) src = 'https://raw.githubusercontent.com/Jordan-Hastings/Choro-Pilot/refs/heads/main/centerPt1.kml';
-        if (paramsString.indexOf("POP")>0) document.getElementById("POP").checked = true;
-        if (paramsString.indexOf("MHI")>0) document.getElementById("MHI").checked = true;
+        if (paramsString.toUpper().indexOf("POP")>0) document.getElementById("POP").checked = true;
+        if (paramsString.toUpper().indexOf("MHI")>0) document.getElementById("MHI").checked = true;
         map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(37, -120),
           zoom: 6, zoomControl: true,
@@ -162,12 +164,10 @@ const calneva = [{Name:'Lake Tahoe',POP:0,MHI:0},
           function nameLU() { while(--L>0) if (calneva[L].Name == name) break; return L }
           var name = feature.getProperty("Name"); nameLU(); var pop = calneva[L].POP, mhi = calneva[L].MHI;
           var color = (L==0?"blue":"white")
-          if (document.getElementById("POP").checked) { // ?POP in url
-            color = (pop<50 ? "dodgerblue" : pop>150000 ? "crimson": pop>100000 ? "tomato" : pop>10000 ? "orange" : pop>100 ? "yellow" :"antiqueWhite")
-          }  
-          if (document.getElementById("MHI").checked) { // ?MHI in url
-            color = (mhi<60 ? "crimson" : mhi<75 ? "pink" : mhi>150 ? "darkGreen" : mhi>100 ? "green" : "antiqueWhite")
-          }
+          if (document.getElementById("POP").checked)
+           color = (pop<50 ? "dodgerblue" : pop>150000 ? "crimson": pop>100000 ? "tomato" : pop>10000 ? "orange" : pop>100 ? "yellow" :"antiqueWhite")
+          if (document.getElementById("MHI").checked)
+           color = (mhi<60 ? "crimson" : mhi<75 ? "pink" : mhi>150 ? "darkGreen" : mhi>100 ? "green" : "antiqueWhite")
           return {clickable:true, fillColor:color, fillOpacity:0.2, strokeColor:'darkGray', strokeWeight:1}
         }
       );
